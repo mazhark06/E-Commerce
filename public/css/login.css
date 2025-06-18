@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mochiy+Pop+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom, #B188C5, #5C416A, #3C2F42);
+  font-family: 'poppins', sans-serif;
+}
+
+h1 {
+  font-family: 'Mochiy Pop One', poppins, sans-serif;
+  color: white;
+
+}
+
+.heading {
+  margin: 100px auto;
+  width: 300px;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.729);
+  backdrop-filter: blur(6.8px);
+  margin: 40px auto;
+  padding: 20px;
+  width:400px;
+  border-radius: 14px;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(121, 9, 165);
+}
+.username , .password{
+  margin: 50px auto ;
+  width: fit-content;
+}
+.username{
+  margin-top: 20px;
+}
+.password{
+  margin-bottom: 20px;
+}
+.username input[type="text"] , .password input[type="password"]{
+  background-color: white;
+  width: 370px;
+  height: 35px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 7px;
+  padding-left: 20px;
+  
+}
+.btn{
+  margin: 40px auto;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+button{
+  padding: 20px  40px;
+  /* width: 70px; */
+  color: white;
+  background-color: rgb(20, 130, 255);
+  border-radius: 25px;
+  border:1px solid white;
+  cursor: pointer;
+  font-family: 'Mochiy pop one';
+  font-size: 25px;
+}
+
+
+
+
+@media only screen and (min-width: 340px) and (max-width: 600px) {
+  .heading {
+    margin: 60px auto;
+    width: 300px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+}
