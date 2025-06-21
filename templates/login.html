@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Document</title>
 </head>
 
@@ -15,17 +15,20 @@
     </div>
     <div class="container">
         <h2>Login </h2>
+        <form action="/login" method="get">
         <div class="username"> 
-            <input type="text" placeholder="Enter Your username or Email">
+            <input type="text" name="Username" placeholder="Enter Your username or Email" id="name">
         </div>
         <div class="password">
-            <input type="password" placeholder=" Password">
+            <input type="password" name="Password" placeholder=" Password" id="password">
         </div>
 <div class="btn">
-    <button>Log in</button>
+        <input type="submit" value="Login" id="Login">
 </div>
+</form>
     </div>
+    
 
 </body>
-
+<script src="/script/login.js"></script>
 </html>
