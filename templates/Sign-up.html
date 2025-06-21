@@ -15,23 +15,24 @@
     </div>
     <div class="container">
         <h2>Sign Up </h2>
-     
+        
+        <div class="message"></div>
             <div class="Email">
-                <input type="email" name="Email" placeholder="Enter Your  Email" id="Email">
+                <input type="email" required name="Email" placeholder="Enter Your  Email" id="Email">
             </div>
             <div class="username">
-                <input type="text" name="Username" placeholder="Enter Your username or Email" id="name">
+                <input type="text" required name="Username" placeholder="Enter Your Username " id="name">
             </div>
             <div class="password">
-                <input type="password" name="Password" placeholder=" Password" id="password">
+                <input type="password" required name="Password" placeholder=" Password" id="password">
             </div>
             <div class="password">
-                <input type="password" placeholder=" Confirm Password" id="confirm_password">
+                <input type="password" required placeholder=" Confirm Password" id="confirm_password">
             </div>
-            <div class="message"></div>
             <div class="btn">
-                <input type="button" onclick="fetchdata()" value="Login" id="Login">
+                <input type="button" value="Login" id="Login">
             </div>
+            <p>Already have an account? <a href="/login"> Login</a> </p>
   
     </div>
 

@@ -43,6 +43,9 @@ h2 {
 .Email{
   margin-top: 20px;
 }
+.message{
+  text-align: center;
+}
 .username input[type="text"] , .password input[type="password"] , .Email input[type="email"]{
   background-color: white;
   width: 370px;
@@ -55,7 +58,7 @@ h2 {
   
 }
 .btn{
-  margin: 40px auto;
+  margin: 20px auto;
   width: fit-content;
   margin-bottom: 20px;
 }
@@ -69,6 +72,13 @@ h2 {
   font-family: 'Mochiy pop one';
   font-size: 25px;
 }
+p{
+  text-align: center;
+}
+a{
+  text-decoration: none;
+}
+
 
 
 
