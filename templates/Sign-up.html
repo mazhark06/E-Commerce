@@ -15,7 +15,7 @@
     </div>
     <div class="container">
         <h2>Sign Up </h2>
-        <form action="/signup" method="post">
+     
             <div class="Email">
                 <input type="email" name="Email" placeholder="Enter Your  Email" id="Email">
             </div>
@@ -26,16 +26,17 @@
                 <input type="password" name="Password" placeholder=" Password" id="password">
             </div>
             <div class="password">
-                <input type="password" placeholder=" Confirm Password" id="password">
+                <input type="password" placeholder=" Confirm Password" id="confirm_password">
             </div>
+            <div class="message"></div>
             <div class="btn">
-                <input type="submit" value="Login" id="Login">
+                <input type="button" onclick="fetchdata()" value="Login" id="Login">
             </div>
-        </form>
+  
     </div>
 
 
 </body>
-<script src="/script/login.js"></script>
+<script src="/script/Sign-up.js"></script>
 
 </html>
