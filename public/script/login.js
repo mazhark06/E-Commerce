@@ -1,18 +1,21 @@
 let username = document.getElementById("name")
 let password = document.getElementById('password')
-let btn = document.getElementById('Login')
+let btn = document.querySelector('#Login')
+let message = document.querySelector('.message')
 
-btn.addEventListener('click', function(e){
-    e.preventDefault()
-    fetchdata()
-})
+
 async function fetchdata() {
 
    
         try {
             let res = await fetch(`/login/${username.value}/${password.value}`)
         let credentials = await res.json()
-        console.log(credentials);
+        // console.log(credentials);
+        message.innerHTML = `${credentials.message}`
+
+          if(credentials.success){
+    window.location.href =  credentials.redirect
+   }
         
         } catch (error) {
             console.error("fetch error in data sending" , error)
