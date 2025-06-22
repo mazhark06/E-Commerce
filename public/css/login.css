@@ -24,11 +24,13 @@ h1 {
   padding: 20px;
   width:400px;
   border-radius: 14px;
+  box-shadow:10px 10px 25px rgb(36, 34, 34);
 }
 
 h2 {
   text-align: center;
   color: rgb(121, 9, 165);
+  text-shadow: 2px 2px 50px #3C2F42;
 }
 .username , .password {
   margin: 20px auto ;
@@ -60,20 +62,29 @@ h2 {
 .btn{
   margin: 20px auto;
   width: fit-content;
-  margin-bottom: 20px;
+  margin-bottom: 48px;
+
 }
 #Login{
-  padding: 20px  40px;
+  padding: 10px  60px;
   /* width: 70px; */
   background-color: rgb(20, 130, 255);
   border-radius: 25px;
   /* border:1px solid white; */
   cursor: pointer;
-  font-family: 'Mochiy pop one';
-  font-size: 25px;
+  font-family: 'poppins';
+  font-size: 25px ;
+    border: none;
+    color: aliceblue;
+    box-shadow: 7px 7px 10px gray;
+    font-weight: 35px;
+    text-shadow: 2px 2px 5px rgb(115, 144, 189);
 }
-p{
+.line{
   text-align: center;
+  border-bottom: 1px solid gray;
+  width: max-content;
+  margin: 5px auto;
 }
 a{
   text-decoration: none;

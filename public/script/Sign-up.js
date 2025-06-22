@@ -4,13 +4,13 @@ let Email = document.querySelector('#Email')
 let name = document.querySelector('#name')
 let btn = document.querySelector('#Login')
 
-btn.addEventListener('click', function(e){
-    e.preventDefault()
-    fetchdata()
-})
+
 async function fetchdata() {
     let message = document.querySelector('.message')
-
+if (name.value==="" && password.value ==="") {
+    message.innerHTML = "PLease Enter your Credentials!"
+}
+else{
     let check = password.value === cpassword.value
     if (!check) {
         message.innerHTML =`Please check Password`
@@ -25,16 +25,22 @@ async function fetchdata() {
         })
         
         let credentials = await res.json()
-   if(credentials.success){
-    window.location.href =  credentials.redirect
-   }
-    
-        // message.innerHTML = `${credentials}`
+        console.log(credentials);
+        
+        if(credentials.success){
+        window.location.href =  credentials.redirect
+        }else{
+        message.innerHTML = `${credentials.message}`
+        }
+        
         
         } catch (error) {
             console.error("fetch error in data sending" , error)
         }
+        // message.innerHTML = `${credentials}`
           
+    }
+
 }
 
 }
