@@ -3,14 +3,18 @@ let cpassword = document.querySelector('#confirm_password')
 let Email = document.querySelector('#Email')
 let name = document.querySelector('#name')
 let btn = document.querySelector('#Login')
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
 async function fetchdata() {
+    let Emailtrue = emailRegex.test(Email.value)
+    console.log(Emailtrue);
+    
     let message = document.querySelector('.message')
-if (name.value==="" && password.value ==="") {
+if (name.value==="" || password.value ==="" || !Emailtrue) {
     message.innerHTML = "PLease Enter your Credentials!"
 }
-else{
+  else{
     let check = password.value === cpassword.value
     if (!check) {
         message.innerHTML =`Please check Password`
@@ -42,5 +46,6 @@ else{
     }
 
 }
+
 
 }
