@@ -8,6 +8,6 @@ router.get("/", (req, res) => {
   
 });
 
-router.get("/:Email/:Password",checkdata);
+router.get("/:Email/:Password" ,checkdata);
 
 module.exports = router

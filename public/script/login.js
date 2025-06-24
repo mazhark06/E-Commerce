@@ -11,11 +11,12 @@ async function fetchdata() {
       let res = await fetch(`/login/${username.value}/${password.value}`);
       let credentials = await res.json();
       console.log(credentials);
+      localStorage.setItem("accessKey", credentials.accesToken);
       message.innerHTML = `${credentials.message}`;
       if (credentials.success) {
+        
         window.location.href = credentials.redirect;
       }
-  localStorage.setItem("accessKey", credentials.accesToken);
          } catch (error) {
       console.error("fetch error in data sending", error);
       message.innerHTML = `Something went wrong in Data send`;
@@ -26,6 +27,10 @@ async function fetchdata() {
   async function CheckAuth(){    
     
          let token = localStorage.getItem("accessKey")
+         if (!token) return console.log('Token Not Provided');
+         
+          
+         
       try {
         let auth = await fetch("/api/profile",{
           method:'GET',
@@ -33,19 +38,20 @@ async function fetchdata() {
             Authorization : `Bearer ${token}`
           }
         });
-        console.log("Authorization :" ,  auth.status);
+        console.log("Authorization :" ,  auth.status );
+        let response = await auth.json();
         
-        if(auth.status == 402 || auth.status == 401){
-          window.location.href = '/'
-          return
+        if(auth.status == 402 || auth.status == 401){ 
+ if (window.location.pathname !== '/login') return window.location.href = '/login'
+        }else if (response.message === "Authorized"){
+    return window.location.href= '/'
         }
 
         
         
-        let response = await auth.json();
 console.log(response);
 
-           window.location.href= '/'
+         
 
 
       } catch (error) {

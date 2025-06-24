@@ -8,7 +8,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 async function fetchdata() {
     let Emailtrue = emailRegex.test(Email.value)
-    console.log(Emailtrue);
+    // console.log(Emailtrue);
     
     let message = document.querySelector('.message')
 if (name.value==="" || password.value ==="" || !Emailtrue) {
@@ -29,9 +29,10 @@ if (name.value==="" || password.value ==="" || !Emailtrue) {
         })
         
         let credentials = await res.json()
-        console.log(credentials);
+        console.log(credentials );
         
         if(credentials.success){
+            localStorage.setItem('accessKey' , credentials.AccessToken)
         window.location.href =  credentials.redirect
         }else{
         message.innerHTML = `${credentials.message}`
@@ -40,8 +41,8 @@ if (name.value==="" || password.value ==="" || !Emailtrue) {
         
         } catch (error) {
             console.error("fetch error in data sending" , error)
+            message.innerHTML = `${credentials}`
         }
-        // message.innerHTML = `${credentials}`
           
     }
 

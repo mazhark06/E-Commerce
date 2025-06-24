@@ -4,9 +4,7 @@ const {generateAccessToken, generateRefreshToken} = require('../utils/generateto
 async function checkdata(req,res) {
 
     let userdetails = req.params
-    
     try {
-        
         let userexist = await User.findOne({
             $or :[
                 {Email : userdetails.Email},
@@ -16,9 +14,11 @@ async function checkdata(req,res) {
         let isMatch = await userexist.matchPass(userdetails.Password)
         if (!userexist || !isMatch) {
            return res.json({message : "User not Found"})
-        }else{
+        }
+        
             let accesToken = generateAccessToken(userexist)
             let refreshToken = generateRefreshToken(userexist)
+            
             // res.json({success: true , redirect : '/' , message: "User Found"})
             res.cookie('refreshToken', refreshToken, {
                 httpOnly :true,
@@ -33,14 +33,12 @@ async function checkdata(req,res) {
                   email :userexist.Email
 
                 },
-                message:"User Found",
+                message:"Authorized",
                 success :true,
                 redirect:'/'
                 
             })
-        }
-
-    } catch (error) {
+        } catch (error) {
         console.error('ERROR: DATA NOT FOUND' , error);
        res.send('DATA not found ') 
     }
