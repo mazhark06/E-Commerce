@@ -1,6 +1,6 @@
-const User = require("../models/user.model.js");
+import User from "../models/user.model.js";
+import { generateAccessToken, generateRefreshToken } from '../utils/generatetoken.js';
 
-const {generateAccessToken, generateRefreshToken} = require('../utils/generatetoken.js')
 async function UserLogin(req,res) {
 
     let userdetails = req.params
@@ -99,8 +99,7 @@ async function UserSignup(req, res) {
  
 }
 
-module.exports = {
-   UserLogin ,
-    UserSignup,
-
-  } ;
+export {
+   UserLogin,
+   UserSignup,
+};

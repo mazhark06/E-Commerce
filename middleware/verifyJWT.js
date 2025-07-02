@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/user.model");
- const Apiresponse = require('../utils/Apiresponse.js')
+import jwt from "jsonwebtoken";
+import User from "../models/user.model.js";
+import Apiresponse from '../utils/Apiresponse.js';
 
 
 async function protectJWT(req, res, next) {
@@ -32,4 +32,5 @@ async function protectJWT(req, res, next) {
       .json(new Apiresponse(400,"ERROR : JWT not deocded"));
   }
 }
-module.exports = protectJWT;
+
+export default protectJWT;

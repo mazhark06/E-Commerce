@@ -1,5 +1,4 @@
-const {Schema} =require('mongoose')
-const mongoose =require('mongoose')
+import mongoose, { Schema } from 'mongoose';
 
 let productSchema = new Schema({
     Images : [{
@@ -43,5 +42,6 @@ let productSchema = new Schema({
 
 
 },{timestamps: true})
-let Product = mongoose.model('Product' , productSchema)
+const Product = mongoose.model('Product' , productSchema);
+export default Product;
 module.exports = Product

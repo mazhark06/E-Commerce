@@ -1,7 +1,7 @@
-const express = require("express")
-const router = express.Router()
-const protectJWT = require('../middleware/verifyJWT.js')
- const Apiresponse = require('../utils/Apiresponse.js')
+import express from "express";
+const router = express.Router();
+import protectJWT from '../middleware/verifyJWT.js';
+import Apiresponse from '../utils/Apiresponse.js';
 
 
 router.get('/api/profile' , protectJWT ,(req,res)=>{
@@ -13,4 +13,4 @@ res.status(201)
 router.get('/refresh',(req,res)=>{
     
 })
-module.exports = router
+export default router;

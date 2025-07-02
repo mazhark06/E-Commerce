@@ -1,7 +1,7 @@
-const express = require("express");
-const router = express.Router()
-const path = require('path')
-const {UserLogin} = require('../controller/user.controller.js')
+import express from "express";
+const router = express.Router();
+import path from 'path';
+import { UserLogin } from '../controller/user.controller.js';
 
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname , '../templates' ,'login.html'))
@@ -10,4 +10,4 @@ router.get("/", (req, res) => {
 
 router.get("/:Email/:Password" ,UserLogin);
 
-module.exports = router
+export default router;
