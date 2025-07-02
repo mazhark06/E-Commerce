@@ -1,5 +1,6 @@
 const express = require("express");
 require("dotenv").config();
+const cookieparser = require('cookie-parser')
 const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 3000;
@@ -9,7 +10,7 @@ const apiRoute = require('./Routes/api.routes.js')
 const Logout = require('./Routes/Logout.routes.js')
 require('./db/db.js'); // Add this line after other requires
 
-
+app.use(cookieparser())
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
@@ -30,5 +31,5 @@ app.get("/Sign-up", (req, res) => {
 });
 
 app.listen(PORT, (req, res) => {
-  console.log("App is listening on ", PORT);
+  console.log(`App is listening on http://localhost:${PORT}`);
 });

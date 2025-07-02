@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+header{
+    width: 100%;
+    height: 18vh;
+
+}
+.title{
+    width: 20%;
+}
+.title img{
+    width: 100%;
+    height: 100%;
+}
+.section-first{
+    padding-top: 20px ;
+    display: flex;
+    gap: 30px;
+    background-color: #988EBD;
+    padding-bottom:50px ;
+
+}
+.search-bar{
+    height: 50px;
+    width: 50%;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    gap: 30px;
+    padding: 1px 3px ;
+}
+.search-bar input{
+    outline: none;
+    border: none;
+    height: 100%;
+    border-radius: 19px;
+    padding: 0px 16px;
+}
+.cart , .heart , .account{
+    width: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center ;
+}
+.fa-search , .fa-cart-shopping , .fa-user, .fa-heart{
+    width: 10%;
+    height: 100%;
+    font-size: 36px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.item-categories{
+    background-color: #B398BF;
+    height: 100%;
+    width: 100%;
+}
+
+#account-list{
+    display: none;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    list-style-type: none;
+}
+#account-list > li {
+    cursor: pointer;
+    background-color: white;
+    width: 100%;
+}
+#account-list li:hover{
+    background-color: grey;
+}
+.account:hover #account-list {
+  display: block;
+}
+

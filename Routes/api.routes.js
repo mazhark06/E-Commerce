@@ -1,11 +1,12 @@
 const express = require("express")
 const router = express.Router()
 const protectJWT = require('../middleware/verifyJWT.js')
-const  checkingAuth = require('../middleware/checkingAuth.js')
+ const Apiresponse = require('../utils/Apiresponse.js')
 
 
-router.get('/api/profile' , protectJWT , checkingAuth ,(req,res)=>{
-res.status(201).json({message: "Authorized"})
+router.get('/api/profile' , protectJWT ,(req,res)=>{
+res.status(201)
+.json(new Apiresponse(200, "User Authorized"))
 })
 
 

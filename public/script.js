@@ -1,10 +1,13 @@
+
+
+let accountIcon = document.querySelector('.account')
 let data = document.getElementById('name')
 
 CheckAuth()
 
 
 async function CheckAuth(){    
-  let token = localStorage.getItem("accessKey")
+  let token = localStorage.getItem("accessToken")
       if (!token) return window.location.href='/login'
       try {
         let auth = await fetch("/api/profile",{
@@ -30,12 +33,11 @@ console.log(response);
 
 }
  async function Logout(){
-  localStorage.clear('accessKey')
+  localStorage.clear('accessToken')
  let res = await fetch('/logout')
   let response = await res.json()
   if (response.success) return window.location.href = response.redirect
-    
-  
- 
-
 }
+
+
+

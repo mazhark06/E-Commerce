@@ -1,29 +1,35 @@
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
+const User = require("../models/user.model");
+ const Apiresponse = require('../utils/Apiresponse.js')
 
 
-function protectJWT(req,res,next){
-let authHeader = req.headers.authorization
+async function protectJWT(req, res, next) {
+  let cookies = req.cookies.refreshToken;
+  let authHeader = req.header("Authorization");
+  // console.log(req.header('Authorization'));
 
-// console.log(authHeader);
-
- if (!authHeader || !authHeader.startsWith("Bearer ")) {
+  if (!authHeader || !authHeader.startsWith("Bearer ") || !cookies) {
     return res.json({ message: "No token provided" });
   }
+
   try {
-      let token = authHeader.split(' ')[1]
-      // console.log(token);
-      
-    let decoded = jwt.verify(token , process.env.ACCESS_SECRET_KEY,)
-    if(!decoded)  if (!decoded) return res.status(401).json({ message: "Token invalid" });
-      req.user = decoded
-  next()
-
-    
+    let token = authHeader.split(" ")[1];
+    let isCookieVerified = await User.findOneAndUpdate(
+      { refreshToken: cookies },
+      {},
+      { new: true }
+    ).select("-Password -refreshToken -Email -Username");
+    // console.log(isCookieVerified);
+    let decoded = jwt.verify(token, process.env.ACCESS_SECRET_KEY);
+    if (!decoded || !isCookieVerified)
+      return res.status(401).json(new Apiresponse(402, "Token Invalid"));
+    req.user = decoded || isCookieVerified._id;
+    next();
   } catch (error) {
-    console.log('ERROR : JWT not deocded' , error);
-    return res.status(402).json({message:"Unauthorized : Invalid or expired token"})
-    
+    console.log("ERROR : JWT not deocded", error);
+    return res
+      .status(402)
+      .json(new Apiresponse(400,"ERROR : JWT not deocded"));
   }
-
 }
-module.exports = protectJWT
+module.exports = protectJWT;

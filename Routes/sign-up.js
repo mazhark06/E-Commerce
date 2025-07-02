@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router()
 
 
-const {savedata} = require('../controller/signup.controller.js') 
+const {UserSignup} = require('../controller/user.controller.js') 
 
-router.post('/' , savedata)
+router.post('/' , UserSignup)
 module.exports = router

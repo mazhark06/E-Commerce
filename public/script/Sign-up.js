@@ -32,7 +32,7 @@ if (name.value==="" || password.value ==="" || !Emailtrue) {
         console.log(credentials );
         
         if(credentials.success){
-            localStorage.setItem('accessKey' , credentials.AccessToken)
+            localStorage.setItem('accessToken' , credentials.accessToken)
         window.location.href =  credentials.redirect
         }else{
         message.innerHTML = `${credentials.message}`
