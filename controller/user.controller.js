@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import asyncHandler from "../utils/asynchandler.js";
 import { generateAccessToken, generateRefreshToken } from '../utils/generatetoken.js';
 
 async function UserLogin(req,res) {
@@ -96,6 +97,9 @@ async function UserSignup(req, res) {
       res.json({ message: "Error on saving Data" });
     
   }  
+  const ProductUpload = asyncHandler(async(req,res)=>{
+    req.file
+  })
  
 }
 
