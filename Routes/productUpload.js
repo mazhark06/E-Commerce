@@ -1,7 +1,9 @@
 import express from 'express';
 import { ProductUpload } from '../controller/product.controller.js';
-let router = express.Router();
+import {uploadFile} from '../middleware/uploadFile.js'
+import upload from '../utils/Multer.js';
+let productRoute = express.Router();
 
-router.post('/product', ProductUpload);
+productRoute.post('/upload',upload.single('file'), ProductUpload);
 
-export default router;
+export default productRoute;

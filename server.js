@@ -7,6 +7,7 @@ import signuprouter from "./Routes/sign-up.js";
 import loginrouter from "./Routes/login.params.js";
 import apiRoute from "./Routes/api.routes.js";
 import Logout from "./Routes/Logout.routes.js";
+import  productRoute  from "./Routes/productUpload.js";
 import './db/db.js';
 
 dotenv.config();
@@ -28,7 +29,7 @@ app.use('/', apiRoute);
 app.use("/signup", signuprouter);
 app.use("/login", loginrouter);
 app.use('/logout', Logout);
-// app.use('/product', ) // Add your product route here if needed
+app.use('/product', productRoute ) // Add your product route here if needed
 
 app.get("/", (req, res) => {
   
