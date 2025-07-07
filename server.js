@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', apiRoute);
 app.use("/signup", signuprouter);
 app.use("/login", loginrouter);
-app.use('/logout', Logout);
+app.use('/logout',Logout);
 app.use('/product', productRoute ) // Add your product route here if needed
 
 app.get("/", (req, res) => {

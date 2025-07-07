@@ -33,9 +33,18 @@ console.log(response);
 
 }
  async function Logout(){
-  localStorage.clear('accessToken')
- let res = await fetch('/logout')
+  console.log("Running");
+  let token = localStorage.getItem('accessToken')
+  let res = await fetch('/logout',{
+    method:'GET',
+    headers : {
+      Authorization : `Bearer ${token}`
+    }
+  })
   let response = await res.json()
+  console.log(response);
+  
+  localStorage.clear('accessToken')
   if (response.success) return window.location.href = response.redirect
 }
 

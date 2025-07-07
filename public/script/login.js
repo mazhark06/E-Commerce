@@ -25,15 +25,10 @@ async function fetchdata() {
 
 async function CheckAuth() {
   let token = localStorage.getItem("accessToken");
-  if (!token) return console.log("Token Not Provided");
+  if (!token) return ;
 
   try {
-    let auth = await fetch("/api/profile", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    let auth = await fetch("/api/profile");
     console.log("Authorization :", auth.status);
     let response = await auth.json();
 

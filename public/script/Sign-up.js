@@ -8,11 +8,11 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 async function fetchdata() {
     let Emailtrue = emailRegex.test(Email.value)
-    // console.log(Emailtrue);
+    console.log(Emailtrue);
     
     let message = document.querySelector('.message')
 if (name.value==="" || password.value ==="" || !Emailtrue) {
-    message.innerHTML = "PLease Enter your Credentials!"
+    message.innerHTML = "Please Enter your Credentials!"
 }
   else{
     let check = password.value === cpassword.value
